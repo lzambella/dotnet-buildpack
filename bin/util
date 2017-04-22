@@ -65,9 +65,7 @@ function apt_install(){
   echo "installing youtube-dl"
   apt-get $apt_options -y --force-yes -d install --reinstall youtube-dl | indent
   apt-get $apt_options -y --force-yes -d install --reinstall software-properties-common | indent
-  add-apt-repository ppa:chris-lea/libsodium
-  echo "deb http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-  echo "deb-src http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
+  sudo add-apt-repository ppa:chris-lea/libsodium
   apt-get update
   
   apt-get $apt_options -y --force-yes -d install --reinstall libsodium | indent
