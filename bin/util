@@ -42,7 +42,10 @@ function apt_install(){
   
   topic "Updating apt caches"
   apt-get  --allow-unauthenticated $apt_options update | indent
-
+  # Install libsodium
+  apt-get -y install libsodium
+  #install opus 
+  apt-get -y install libopus0
   for package in "$@"; do
     if [[ $package == *deb ]]; then
       local package_name=$(basename $package .deb)
@@ -54,10 +57,6 @@ function apt_install(){
       apt-get $apt_options -y --force-yes -d install --reinstall $package | indent
     fi
   done
-  # Install libsodium
-  apt-get -y install libsodium
-  #install opus 
-  apt-get -y install libopus0
   
   mkdir -p "$BUILD_DIR/.apt"
 
