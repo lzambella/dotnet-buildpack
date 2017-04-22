@@ -64,8 +64,9 @@ function apt_install(){
   
   echo "installing youtube-dl"
   apt-get $apt_options -y --force-yes -d install --reinstall youtube-dl | indent
-  apt-get $apt_options -y --force-yes -d install --reinstall software-properties-common | indent
-  sudo add-apt-repository ppa:chris-lea/libsodium
+  apt-get $apt_options -y --force-yes -d install --reinstall software-properties-common python-software-properties | indent
+  
+  add-apt-repository ppa:chris-lea/libsodium
   apt-get update
   
   apt-get $apt_options -y --force-yes -d install --reinstall libsodium | indent
