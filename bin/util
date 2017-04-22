@@ -42,10 +42,7 @@ function apt_install(){
   
   topic "Updating apt caches"
   apt-get  --allow-unauthenticated $apt_options update | indent
-  # Install libsodium
-  apt-get -y install libsodium
-  #install opus 
-  apt-get -y install libopus0
+
   for package in "$@"; do
     if [[ $package == *deb ]]; then
       local package_name=$(basename $package .deb)
@@ -67,6 +64,8 @@ function apt_install(){
   
   echo "installing youtube-dl"
   apt-get $apt_options -y --force-yes -d install --reinstall youtube-dl | indent
+  apt-get $apt_options -y --force-yes -d install --reinstall libsodium | indent
+  apt-get $apt_options -y --force-yes -d install --reinstall libopus0 | indent
   
   export PATH="$PATH:$BUILD_DIR/.apt/usr/bin"
   export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
