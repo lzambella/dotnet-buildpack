@@ -67,12 +67,12 @@ function apt_install(){
   apt-get $apt_options -y --force-yes -d install --reinstall libopus0 | indent
   
   # installing libsodium
-  wget "https://download.libsodium.org/libsodium/releases/libsodium-1.0.10.tar.gz" && tar xfvz libsodium-1.0.10.tar.gz
-  cd libsodium-1.0.10
-  ./configure
-  make
-  make install
-  cd ../
+  #wget "https://download.libsodium.org/libsodium/releases/libsodium-1.0.10.tar.gz" && tar xfvz libsodium-1.0.10.tar.gz
+  #cd libsodium-1.0.10
+  #./configure
+  #make
+  #make install
+  #cd ../
   
   export PATH="$PATH:$BUILD_DIR/.apt/usr/bin"
   export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
