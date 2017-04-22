@@ -64,7 +64,7 @@ function apt_install(){
   
   echo "installing youtube-dl"
   apt-get $apt_options -y --force-yes -d install --reinstall youtube-dl | indent
-  apt-get $apt_options -y --force-yes -d install --reinstall libsodium | indent
+  apt-get $apt_options -y --force-yes -d install --reinstall libsodium13 | indent
   apt-get $apt_options -y --force-yes -d install --reinstall libopus0 | indent
   
   export PATH="$PATH:$BUILD_DIR/.apt/usr/bin"
