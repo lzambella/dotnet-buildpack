@@ -55,12 +55,9 @@ function apt_install(){
     fi
   done
   # Install libsodium
-  add-apt-repository ppa:chris-lea/libsodium;
-  echo "deb http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-  echo "deb-src http://ppa.launchpad.net/chris-lea/libsodium/ubuntu trusty main" >> /etc/apt/sources.list;
-  apt-get update && sudo apt-get install libsodium-dev;
+  apt-get -y install libsodium
   #install opus 
-  apt-get install libopus0
+  apt-get -y install libopus0
   
   mkdir -p "$BUILD_DIR/.apt"
 
