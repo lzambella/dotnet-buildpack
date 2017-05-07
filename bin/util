@@ -63,8 +63,8 @@ function apt_install(){
   done
   
   echo "installing youtube-dl"
-  apt-get $apt_options -y --force-yes -d install --reinstall youtube-dl | indent
-  apt-get $apt_options -y --force-yes -d install --reinstall libopus0 | indent
+  curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /bin/youtube-dl
+  chmod a+rx /bin/youtube-dl
   
   # installing libsodium
   #wget "https://download.libsodium.org/libsodium/releases/libsodium-1.0.10.tar.gz" && tar xfvz libsodium-1.0.10.tar.gz
