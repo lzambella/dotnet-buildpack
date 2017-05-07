@@ -61,7 +61,8 @@ function apt_install(){
     topic "Installing $(basename $DEB)"
     dpkg -x $DEB "$BUILD_DIR/.apt/"
   done
-  
+  curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /app/heroku_output/youtube-dl
+  chmod a+rx /app/heroku_output/youtube-dl
   export PATH="$PATH:$BUILD_DIR/.apt/usr/bin"
   export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
   export LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LIBRARY_PATH"
