@@ -143,8 +143,8 @@ export PATH="${PROJECT_DIR}/node_modules/.bin:${PATH}"
 echo "Publishing the app"
 # Publish to heroku_output
 dotnet publish ${PROJECT_JSON_FILE} --output ${BUILD_DIR}/heroku_output --configuration ${CORE_CONFIGURATION}
-chmod +x /app/heroku_output/youtube-dl
-chmod +x /app/heroku_output/ffmpeg
+#chmod +x /app/heroku_output/youtube-dl
+#chmod +x /app/heroku_output/ffmpeg
 echo "Publish Successed"
 
 mkdir -p ${BUILD_DIR}/.profile.d
